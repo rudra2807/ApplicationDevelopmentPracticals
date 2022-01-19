@@ -57,14 +57,22 @@ class MyApp extends StatelessWidget {
   }
 
   validate() {
-    int num1, num2;
-    try {
+    int num1 = 0, num2 = 0;
+
+    if (!isNumeric(field1.value.text) || !isNumeric(field2.value.text)) {
+      Fluttertoast.showToast(msg: 'Invalid Input');
+    } else {
       num1 = int.parse(field1.value.text);
       num2 = int.parse(field2.value.text);
-    } catch (e) {
-      Fluttertoast.showToast(msg: 'Invalid Input');
+      int sum = num1 + num2;
+      Fluttertoast.showToast(msg: 'Sum: $sum');
     }
-    int sum = num1 + num2;
-    if (num1 != null && num2 != null) Fluttertoast.showToast(msg: 'Sum: $sum');
+  }
+
+  bool isNumeric(String s) {
+    if (s == null) {
+      return false;
+    }
+    return int.tryParse(s) != null;
   }
 }
