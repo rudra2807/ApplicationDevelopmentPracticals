@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:prac8/ItemOne.dart';
 import 'package:prac8/ItemTwo.dart';
+import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 
 void main() {
   runApp(const MyApp());
@@ -27,6 +28,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
+  int _currentIndex = 0;
 
   void _incrementCounter() {
     setState(() {
@@ -43,8 +45,6 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
         title: const Text('Drawers | Bottom NavBar'),
       ),
       drawer: Drawer(
@@ -101,6 +101,32 @@ class _MyHomePageState extends State<MyHomePage> {
         onPressed: _incrementCounter,
         tooltip: 'Increment',
         child: const Icon(Icons.add),
+      ),
+      bottomNavigationBar: SalomonBottomBar(
+        currentIndex: _currentIndex,
+        onTap: (i) => setState(() => _currentIndex = i),
+        items: [
+          /// Search
+          SalomonBottomBarItem(
+            icon: const Icon(Icons.search),
+            title: const Text("Search"),
+            selectedColor: Colors.purple,
+          ),
+
+          /// Home
+          SalomonBottomBarItem(
+            icon: const Icon(Icons.home),
+            title: const Text("Home"),
+            selectedColor: Colors.pink,
+          ),
+
+          /// Person
+          SalomonBottomBarItem(
+            icon: const Icon(Icons.person),
+            title: const Text("Search"),
+            selectedColor: Colors.orange,
+          ),
+        ],
       ),
     );
   }
