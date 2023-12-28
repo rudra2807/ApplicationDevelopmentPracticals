@@ -26,6 +26,3 @@ Focuses on building a photo-sharing app integrated with Google Photos. The task 
 
 ## Practical 10: 
 Involves creating an application for data management (storing, retrieving, editing, and deleting data) using Firebase, SQLite, or RoomDatabase.
-
-## Practical 11: 
-Develop an application that integrates with a third-party API to transmit the user's current latitude and longitude and retrieve relevant data, such as nearby places, displaying this information either on a map or in a list format.
